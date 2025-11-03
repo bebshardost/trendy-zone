@@ -182,3 +182,68 @@
     background-position: 100% 50%;
   }
 }
+
+/* Smooth scrolling for product pages */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for reviews */
+.reviews-container {
+  scrollbar-width: thin;
+  scrollbar-color: theme('colors.primary.400') theme('colors.neutral.200');
+}
+
+.reviews-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.reviews-container::-webkit-scrollbar-track {
+  background: theme('colors.neutral.200');
+  border-radius: 3px;
+}
+
+.reviews-container::-webkit-scrollbar-thumb {
+  background: theme('colors.primary.400');
+  border-radius: 3px;
+}
+
+.reviews-container::-webkit-scrollbar-thumb:hover {
+  background: theme('colors.primary.500');
+}
+
+/* Line clamp utilities */
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+/* Floating trust bar animation */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.fixed {
+  animation: slideUp 0.3s ease-out;
+}
