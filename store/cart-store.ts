@@ -1,4 +1,4 @@
-// store/cart-store.ts - Ensure this exists
+// store/cart-store.ts - Updated
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { CartStore, Product } from '@/types'
@@ -38,10 +38,22 @@ export const useCartStore = create<CartStore>()(
           )
         })
       },
-      clearCart: () => set({ items: [] })
+      clearCart: () => set({ items: [] }),
+      // New method to get cart total
+      getCartTotal: () => {
+        const { items } = get()
+        return items.reduce((total, item) => total + (item.price * item.quantity), 0)
+      },
+      // New method to get total items count
+      getTotalItems: () => {
+        const { items } = get()
+        return items.reduce((total, item) => total + item.quantity, 0)
+      }
     }),
     {
-      name: 'trendy-zone-cart'
+      name: 'trendy-zone-cart',
+      // Only persist the items array
+      partialize: (state) => ({ items: state.items })
     }
   )
 )
