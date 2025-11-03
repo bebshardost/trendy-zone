@@ -1,26 +1,184 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary-50: #fdf2f8;
+  --primary-400: #f472b6;
+  --primary-500: #ec4899;
+  --neutral-200: #e5e7eb;
+  --neutral-500: #6b7280;
+  --neutral-600: #4b5563;
+  --accent-gold: #facc15;
+  --accent-coral: #f472b6;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Base styles */
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-white text-neutral-600 antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-neutral-700 font-semibold;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Component classes */
+@layer components {
+  /* Button components */
+  .btn-primary {
+    @apply bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-200 shadow-lg hover:shadow-xl;
+  }
+  
+  .btn-secondary {
+    @apply bg-accent-gold-400 hover:bg-accent-gold-500 text-neutral-800 px-6 py-3 rounded-lg font-semibold transition-colors duration-200;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-primary-500 text-primary-500 hover:bg-primary-50 px-6 py-3 rounded-lg font-semibold transition-colors duration-200;
+  }
+  
+  /* Card components */
+  .card-product {
+    @apply bg-white rounded-xl border border-zinc-200 p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1;
+  }
+  
+  .card-category {
+    @apply bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105;
+  }
+  
+  /* Text utilities */
+  .text-body-large {
+    @apply text-lg text-neutral-600;
+  }
+  
+  .text-body-base {
+    @apply text-base text-neutral-600;
+  }
+  
+  .text-body-small {
+    @apply text-sm text-neutral-500;
+  }
+  
+  /* Price styling */
+  .text-price {
+    @apply text-accent-coral-400 font-semibold;
+  }
+  
+  /* Badge styling */
+  .badge-primary {
+    @apply bg-primary-100 text-primary-700 px-2 py-1 rounded-full text-xs font-medium;
+  }
+  
+  .badge-accent {
+    @apply bg-accent-gold-400 text-neutral-800 px-2 py-1 rounded-full text-xs font-medium;
+  }
+}
+
+/* Utility classes */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .gradient-primary {
+    background: linear-gradient(135deg, var(--primary-50) 0%, #ffffff 50%, var(--primary-50) 100%);
+  }
+  
+  .gradient-accent {
+    background: linear-gradient(135deg, var(--accent-gold) 0%, var(--primary-400) 100%);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-neutral-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary-400;
+}
+
+/* Add to your existing globals.css */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(236, 72, 153, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(236, 72, 153, 0.6);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  background-size: 1000px 100%;
+}
+
+/* Hover effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Gradient text animation */
+.gradient-text {
+  background: linear-gradient(45deg, #ec4899, #f472b6, #facc15, #2dd4bf);
+  background-size: 300% 300%;
+  animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
