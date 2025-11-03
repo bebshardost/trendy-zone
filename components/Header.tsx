@@ -3,11 +3,11 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { 
-  Search, 
-  ShoppingCart, 
-  User, 
-  Menu, 
+import {
+  Search,
+  ShoppingCart,
+  User,
+  Menu,
   X,
   Phone,
   MapPin
@@ -36,7 +36,7 @@ export default function Header() {
               <span>Free delivery across Dhaka, CTG & Sylhet</span>
             </div>
           </div>
-          
+
           <div className="flex items-center gap-4">
             <Link href="/track-order" className="hover:text-accent-gold-400 transition-colors">
               Track Order
@@ -65,8 +65,8 @@ export default function Header() {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-8">
-              <Link 
-                href="/" 
+              <Link
+                href="/"
                 className="text-neutral-700 hover:text-primary-500 font-medium transition-colors"
               >
                 Home
@@ -79,34 +79,34 @@ export default function Header() {
                   </svg>
                 </button>
                 <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-neutral-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                  <Link 
-                    href="/hoodies" 
-                    className="block px-4 py-3 text-neutral-700 hover:bg-primary-50 hover:text-primary-500 transition-colors border-b border-neutral-100"
+                  <Link
+                    href="/categories/hoodies"
+                    className="text-neutral-700 hover:text-primary-500 font-medium transition-colors"
                   >
-                    👕 Hoodies & Sweatshirts
+                    Hoodies
                   </Link>
-                  <Link 
-                    href="/jackets" 
-                    className="block px-4 py-3 text-neutral-700 hover:bg-primary-50 hover:text-primary-500 transition-colors border-b border-neutral-100"
+                  <Link
+                    href="/categories/jackets"
+                    className="text-neutral-700 hover:text-primary-500 font-medium transition-colors"
                   >
-                    🧥 Jackets & Coats
+                    Jackets
                   </Link>
-                  <Link 
-                    href="/shoes" 
-                    className="block px-4 py-3 text-neutral-700 hover:bg-primary-50 hover:text-primary-500 transition-colors"
+                  <Link
+                    href="/categories/shoes"
+                    className="text-neutral-700 hover:text-primary-500 font-medium transition-colors"
                   >
-                    👟 Shoes & Footwear
+                    Shoes
                   </Link>
                 </div>
               </div>
-              <Link 
-                href="/new-arrivals" 
+              <Link
+                href="/new-arrivals"
                 className="text-neutral-700 hover:text-primary-500 font-medium transition-colors"
               >
                 New Arrivals
               </Link>
-              <Link 
-                href="/sale" 
+              <Link
+                href="/sale"
                 className="text-accent-coral-500 hover:text-accent-coral-600 font-medium transition-colors"
               >
                 Sale
@@ -116,7 +116,7 @@ export default function Header() {
             {/* Desktop Actions */}
             <div className="hidden lg:flex items-center gap-4">
               {/* Search */}
-              <button 
+              <button
                 onClick={() => setIsSearchOpen(true)}
                 className="p-2 text-neutral-600 hover:text-primary-500 transition-colors"
               >
@@ -124,16 +124,16 @@ export default function Header() {
               </button>
 
               {/* User Account */}
-              <Link 
-                href="/account" 
+              <Link
+                href="/account"
                 className="p-2 text-neutral-600 hover:text-primary-500 transition-colors"
               >
                 <User className="w-5 h-5" />
               </Link>
 
               {/* Shopping Cart */}
-              <Link 
-                href="/cart" 
+              <Link
+                href="/cart"
                 className="relative p-2 text-neutral-600 hover:text-primary-500 transition-colors"
               >
                 <ShoppingCart className="w-5 h-5" />
@@ -146,7 +146,7 @@ export default function Header() {
             </div>
 
             {/* Mobile Menu Button */}
-            <button 
+            <button
               onClick={() => setIsMenuOpen(true)}
               className="lg:hidden p-2 text-neutral-600 hover:text-primary-500 transition-colors"
             >
@@ -161,7 +161,7 @@ export default function Header() {
         <div className="fixed inset-0 bg-white z-50 lg:hidden">
           <div className="container mx-auto px-4 py-4">
             <div className="flex items-center gap-4">
-              <button 
+              <button
                 onClick={() => setIsSearchOpen(false)}
                 className="p-2 text-neutral-600 hover:text-primary-500 transition-colors"
               >
@@ -195,8 +195,8 @@ export default function Header() {
                   <p className="text-xs text-neutral-500 -mt-1">Urban Winter Fashion</p>
                 </div>
               </Link>
-              
-              <button 
+
+              <button
                 onClick={() => setIsMenuOpen(false)}
                 className="p-2 text-neutral-600 hover:text-primary-500 transition-colors"
               >
@@ -206,33 +206,33 @@ export default function Header() {
 
             {/* Mobile Navigation */}
             <nav className="space-y-4">
-              <Link 
-                href="/" 
+              <Link
+                href="/"
                 className="block py-3 text-lg font-medium text-neutral-700 border-b border-neutral-200"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Home
               </Link>
-              
+
               <div className="py-3 border-b border-neutral-200">
                 <h3 className="text-lg font-medium text-neutral-700 mb-3">Categories</h3>
                 <div className="space-y-2 pl-4">
-                  <Link 
-                    href="/hoodies" 
+                  <Link
+                    href="/hoodies"
                     className="block py-2 text-neutral-600 hover:text-primary-500 transition-colors"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     👕 Hoodies & Sweatshirts
                   </Link>
-                  <Link 
-                    href="/jackets" 
+                  <Link
+                    href="/jackets"
                     className="block py-2 text-neutral-600 hover:text-primary-500 transition-colors"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     🧥 Jackets & Coats
                   </Link>
-                  <Link 
-                    href="/shoes" 
+                  <Link
+                    href="/shoes"
                     className="block py-2 text-neutral-600 hover:text-primary-500 transition-colors"
                     onClick={() => setIsMenuOpen(false)}
                   >
@@ -240,17 +240,17 @@ export default function Header() {
                   </Link>
                 </div>
               </div>
-              
-              <Link 
-                href="/new-arrivals" 
+
+              <Link
+                href="/new-arrivals"
                 className="block py-3 text-lg font-medium text-neutral-700 border-b border-neutral-200"
                 onClick={() => setIsMenuOpen(false)}
               >
                 New Arrivals
               </Link>
-              
-              <Link 
-                href="/sale" 
+
+              <Link
+                href="/sale"
                 className="block py-3 text-lg font-medium text-accent-coral-500 border-b border-neutral-200"
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -259,17 +259,17 @@ export default function Header() {
 
               {/* Mobile Actions */}
               <div className="flex items-center gap-4 pt-6 border-t border-neutral-200">
-                <Link 
-                  href="/account" 
+                <Link
+                  href="/account"
                   className="flex items-center gap-2 text-neutral-600 hover:text-primary-500 transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <User className="w-5 h-5" />
                   <span>Account</span>
                 </Link>
-                
-                <Link 
-                  href="/cart" 
+
+                <Link
+                  href="/cart"
                   className="flex items-center gap-2 text-neutral-600 hover:text-primary-500 transition-colors relative"
                   onClick={() => setIsMenuOpen(false)}
                 >
